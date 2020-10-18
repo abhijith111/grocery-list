@@ -3,7 +3,7 @@ let itemList = [];
 function viewItems() {
     htmlContent = ''
     for (item in itemList) {
-        htmlContent = htmlContent + "<li class='m-1' >" + itemList[item] + "<div style='float:right' class='text-right'><button class='btn btn-danger m-1 ' onclick ='delFromArray(this.id)' id='" + item + "'>delete</button> </div>" + "</li>";
+        htmlContent = htmlContent + "<li> <div class='m-1' style='float:left'>" + itemList[item] + " </div> <div style='float:right' class='text-right'><button class='btn btn-danger m-1 ' onclick ='delFromArray(this.id)' id='" + item + "'>delete</button> </div>" + "</li>";
     }
     document.getElementById("myList").innerHTML = htmlContent;
     document.getElementById("itemInput").value = null;
