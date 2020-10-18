@@ -3,7 +3,7 @@ let itemList = [];
 function viewItems() {
     htmlContent = ''
     for (item in itemList) {
-        htmlContent = htmlContent + "<li>" + itemList[item] + "<button class='btn btn-danger   m-1' onclick ='delFromArray(this.id)' id='" + item + "'>delete</button>" + "</li>";
+        htmlContent = htmlContent + "<li class='m-1' >" + itemList[item] + "<div style='float:right' class='text-right'><button class='btn btn-danger m-1 ' onclick ='delFromArray(this.id)' id='" + item + "'>delete</button> </div>" + "</li>";
     }
     document.getElementById("myList").innerHTML = htmlContent;
     document.getElementById("itemInput").value = null;
@@ -15,10 +15,17 @@ function addItem() {
     viewItems();
 }
 function delFromArray(id) {
-    itemList.splice(id, 1)
-    viewItems();    
+    var confirmDelete = confirm("Are you sure, you want to delete this item ?");
+    if (confirmDelete) {
+        itemList.splice(id, 1)
+    }
+    viewItems();
+
 }
 function clearAll() {
-    itemList = [];
+    var confirmDelete = confirm("Are you sure, you want to delete this item ?");
+    if (confirmDelete) {
+        itemList = [];
+    }
     viewItems();
 }
